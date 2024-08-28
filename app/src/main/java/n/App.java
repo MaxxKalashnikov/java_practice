@@ -1,5 +1,6 @@
 
 package n;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
@@ -96,6 +97,71 @@ public class App {
         System.out.println("Your BMI is " + bmi);
     }
 
+    public void task6(){
+        // Write a program that calculates and prints the area of ​​a rectangle, square and circle. 
+        // Give the variables the values ​​of your choice. (Constant for Pi is defined in Math.PI)
+        int width = 10;
+        int height = 5;
+        int side = 4;
+        int radius = 7;
+
+        int rect = width * height;
+        int square = side * side;
+        double circle = Math.PI * Math.pow(radius, 2);
+
+        System.out.println("The area of the rectangle is " + rect + ", square - " + square + ", circle - " + circle);
+    }
+    public void task7(){
+        // Ask the user the number of apples. Print how many apples are left, 
+        // when they are divided equally among five people (modulo operator).
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("How many apples do you have? ");
+        int apples = scanner.nextInt();
+
+        int left = apples % 5;
+        System.out.print("There are " + left + " apples left after we divided them among five people");
+    }
+
+    public void task8(){
+        // Ask Matt how much money he has and how many children he has. 
+        // Then Matt divides the money equally among the children to the nearest euro, 
+        // but he keeps the remainder (cents) for himself. Print out how much money Matt has. 
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Hello Matt! How much money do you have? ");
+        Double money = scanner.nextDouble();
+
+        System.out.print("How many children do you have? ");
+        int child = scanner.nextInt();
+
+        // Modify the previous task in such a way that Matt keeps the amount of money that goes over 
+        // 50 euros and splits the rest among the children equally. Print out how much money Matt now has.
+        if(money > 50){
+           double newMoney = money - 50;
+           int newRem = 50 % child;
+           newMoney += newRem;
+
+           System.out.println("Matt now keeps: " + newMoney + " euros, while the rest 50 euros are divided between children");
+        }else{
+            int moneyChild = (int)(money/child);
+
+            double remain = money % child;
+
+            String formattedNumber = String.format("%.2f", remain);
+
+            System.out.println("Each child gets: " + moneyChild + " euros");
+            System.out.println("Matt keeps: " + formattedNumber + " euros");
+        }
+    }
+
+    public void task9(){
+        // Generate a random number between 0-100, but in such a way that the number is 
+        // divisible by five. E.g. allowed random numbers are 0, 5, 10, 15, .., 100
+        Random rnd = new Random();
+
+        int num = rnd.nextInt(21)*5;
+        System.out.println(num);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -119,6 +185,18 @@ public class App {
                 break;
             case 5:
             app.task5();
+                break;
+            case 6:
+            app.task6();
+                break;
+            case 7:
+            app.task7();
+                break;
+            case 8:
+            app.task8();
+                break;
+            case 9:
+            app.task9();
                 break;
             default:
                 break;
