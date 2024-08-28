@@ -1,1 +1,1 @@
-# Just a practice tasks and solutions in Java
+# Just practice tasks and solutions in Java
